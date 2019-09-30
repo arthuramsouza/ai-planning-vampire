@@ -22,11 +22,50 @@
         )
         :effect (and
             (when
-                ; when the light is on
+                ; when the light is on...
                 (light-on ?room)
                 (and
+                    ; ...the light gets turned off
                     (not (light-on ?room))
-                    ; TODO
+                    (when
+                        ; when the slayer is in the room...
+                        (slayer-is-in ?room)
+                        (and
+                            ; ...the slayer leaves the room
+                            (not (slayer-is-in ?room))
+                            (and
+                                (when
+                                    ; when the anti-clockwise room is bright...
+                                    (light-on ?anti-clockwise-neighbor)
+                                    (and
+                                        ; ..the slayer goes to the anti-clockwise room
+                                        (slayer-is-in ?anti-clockwise)
+                                        (when
+                                            ; when the vampire is in that same room...
+                                            (vampire-is-in ?anti-clockwise-neighbor)
+                                            ; ...the vampire and the slayer start fighting
+                                            (fighting)
+                                        )
+                                    )
+                                )
+                                (when
+                                    ; when the anti-clockwise room is dark,
+                                    ; the slayer will go to the clockwise room whether it is bright or not
+                                    (not (light-on ?anti-clockwise-neighbor))
+                                    (and
+                                        ; ...the slayer goes to the clockwise room
+                                        (slayer-is-in ?clockwise-neighbor)
+                                        (when
+                                            ; when the vampire is in that same room...
+                                            (vampire-is-in ?clockwise-neighbor)
+                                            ; ...the vampire and the slayer start fighting
+                                            (fighting)
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
                 )
             )
             (when
@@ -55,7 +94,6 @@
                                             (fighting)
                                         )
                                     )
-
                                 )
                                 (when
                                     ; when the anti-clockwise room is bright,
