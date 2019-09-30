@@ -26,6 +26,7 @@
                 (light-on ?room)
                 (and
                     (not (light-on ?room))
+                    ; TODO
                 )
             )
             (when
@@ -60,7 +61,16 @@
                                     ; when the anti-clockwise room is bright,
                                     ; the vampire will go to the clockwise room whether it is dark or not
                                     (light-on ?anti-clockwise-neighbor)
-                                    ; TO-DO
+                                    (and
+                                        ; ...the vampire goes to the clockwise room
+                                        (vampire-is-in ?clockwise-neighbor)
+                                        (when
+                                            ; when the slayer is in that same room...
+                                            (slayer-is-in ?clockwise-neighbor)
+                                            ; ...the vampire and the slayer start fighting
+                                            (fighting)
+                                        )
+                                    )
                                 )
                             )
                         )
