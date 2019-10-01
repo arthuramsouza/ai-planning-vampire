@@ -35,29 +35,29 @@
                             (not (slayer-is-in ?room))
                             (and
                                 (when
-                                    ; when the anti-clockwise room is bright...
-                                    (light-on ?anti-clockwise-neighbor)
+                                    ; when the clockwise room is bright...
+                                    (light-on ?clockwise-neighbor)
                                     (and
-                                        ; ..the slayer goes to the anti-clockwise room
-                                        (slayer-is-in ?anti-clockwise-neighbor)
+                                        ; ..the slayer goes to the clockwise room
+                                        (slayer-is-in ?clockwise-neighbor)
                                         (when
                                             ; when the vampire is in that same room...
-                                            (vampire-is-in ?anti-clockwise-neighbor)
+                                            (vampire-is-in ?clockwise-neighbor)
                                             ; ...the vampire and the slayer start fighting
                                             (fighting)
                                         )
                                     )
                                 )
                                 (when
-                                    ; when the anti-clockwise room is dark,
-                                    ; the slayer will go to the clockwise room whether it is bright or not
-                                    (not (light-on ?anti-clockwise-neighbor))
+                                    ; when the clockwise room is dark,
+                                    ; the slayer will go to the anti-clockwise room whether it is bright or not
+                                    (not (light-on ?clockwise-neighbor))
                                     (and
                                         ; ...the slayer goes to the clockwise room
-                                        (slayer-is-in ?clockwise-neighbor)
+                                        (slayer-is-in ?anti-clockwise-neighbor)
                                         (when
                                             ; when the vampire is in that same room...
-                                            (vampire-is-in ?clockwise-neighbor)
+                                            (vampire-is-in ?anti-clockwise-neighbor)
                                             ; ...the vampire and the slayer start fighting
                                             (fighting)
                                         )
