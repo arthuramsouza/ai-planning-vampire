@@ -128,7 +128,28 @@
             (fighting)
         )
         :effect (and
-            ; TO-DO
+            (when
+                (or
+                    ; when the room is bright...
+                    (light-on ?room)
+                    ; ...or when the room is dark and has garlic in it...
+                    (and
+                        (not (light-on ?room))
+                        (CONTAINS-GARLIC ?room)
+                    )
+                )
+                ; ...the slayer defeats the vampire
+                (not (vampire-is-alive))
+            )
+            (when
+                ; when the room is dark and there's no garlic inside it...
+                (and
+                    (not (light-on ?room))
+                    (not (CONTAINS-GARLIC ?room))
+                )
+                ; ...the vampire defeats the slayer
+                (not (slayer-is-alive))
+            )
         )
     )
 )
