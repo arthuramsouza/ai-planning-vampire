@@ -36,21 +36,21 @@
                             (not (slayer-is-in-room2))
                             (and
                                 (when
-                                    (light-on-room1)
+                                    (light-on-room3)
                                     (and
-                                        (slayer-is-in-room1)
+                                        (slayer-is-in-room3)
                                         (when
-                                            (vampire-is-in-room1)
+                                            (vampire-is-in-room3)
                                             (fighting)
                                         )
                                     )
                                 )
                                 (when
-                                    (not (light-on-room1))
+                                    (not (light-on-room3))
                                     (and
-                                        (slayer-is-in-room3)
+                                        (slayer-is-in-room1)
                                         (when
-                                            (vampire-is-in-room3)
+                                            (vampire-is-in-room1)
                                             (fighting)
                                         )
                                     )
@@ -112,21 +112,21 @@
                             (not (slayer-is-in-room3))
                             (and
                                 (when
-                                    (light-on-room2)
+                                    (light-on-room4)
                                     (and
-                                        (slayer-is-in-room2)
+                                        (slayer-is-in-room4)
                                         (when
-                                            (vampire-is-in-room2)
+                                            (vampire-is-in-room4)
                                             (fighting)
                                         )
                                     )
                                 )
                                 (when
-                                    (not (light-on-room2))
+                                    (not (light-on-room4))
                                     (and
-                                        (slayer-is-in-room4)
+                                        (slayer-is-in-room2)
                                         (when
-                                            (vampire-is-in-room4)
+                                            (vampire-is-in-room2)
                                             (fighting)
                                         )
                                     )
@@ -188,21 +188,21 @@
                             (not (slayer-is-in-room4))
                             (and
                                 (when
-                                    (light-on-room3)
+                                    (light-on-room5)
                                     (and
-                                        (slayer-is-in-room3)
+                                        (slayer-is-in-room5)
                                         (when
-                                            (vampire-is-in-room3)
+                                            (vampire-is-in-room5)
                                             (fighting)
                                         )
                                     )
                                 )
                                 (when
-                                    (not (light-on-room3))
+                                    (not (light-on-room5))
                                     (and
-                                        (slayer-is-in-room5)
+                                        (slayer-is-in-room3)
                                         (when
-                                            (vampire-is-in-room5)
+                                            (vampire-is-in-room3)
                                             (fighting)
                                         )
                                     )
@@ -264,21 +264,21 @@
                             (not (slayer-is-in-room5))
                             (and
                                 (when
-                                    (light-on-room4)
+                                    (light-on-room1)
                                     (and
-                                        (slayer-is-in-room4)
+                                        (slayer-is-in-room1)
                                         (when
-                                            (vampire-is-in-room4)
+                                            (vampire-is-in-room1)
                                             (fighting)
                                         )
                                     )
                                 )
                                 (when
-                                    (not (light-on-room4))
+                                    (not (light-on-room1))
                                     (and
-                                        (slayer-is-in-room1)
+                                        (slayer-is-in-room4)
                                         (when
-                                            (vampire-is-in-room1)
+                                            (vampire-is-in-room4)
                                             (fighting)
                                         )
                                     )
@@ -340,21 +340,21 @@
                             (not (slayer-is-in-room1))
                             (and
                                 (when
-                                    (light-on-room5)
+                                    (light-on-room2)
                                     (and
-                                        (slayer-is-in-room5)
+                                        (slayer-is-in-room2)
                                         (when
-                                            (vampire-is-in-room5)
+                                            (vampire-is-in-room2)
                                             (fighting)
                                         )
                                     )
                                 )
                                 (when
-                                    (not (light-on-room5))
+                                    (not (light-on-room2))
                                     (and
-                                        (slayer-is-in-room2)
+                                        (slayer-is-in-room5)
                                         (when
-                                            (vampire-is-in-room2)
+                                            (vampire-is-in-room5)
                                             (fighting)
                                         )
                                     )
@@ -405,8 +405,8 @@
         :precondition 
         (and
             (slayer-is-in-room1)
-            (slayer-is-alive)
             (vampire-is-alive)
+            (slayer-is-alive)
             (vampire-is-in-room1)
             (fighting)
         )
