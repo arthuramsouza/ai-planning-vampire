@@ -39,7 +39,7 @@
                                     (light-on ?anti-clockwise-neighbor)
                                     (and
                                         ; ..the slayer goes to the anti-clockwise room
-                                        (slayer-is-in ?anti-clockwise)
+                                        (slayer-is-in ?anti-clockwise-neighbor)
                                         (when
                                             ; when the vampire is in that same room...
                                             (vampire-is-in ?anti-clockwise-neighbor)
@@ -139,7 +139,11 @@
                     )
                 )
                 ; ...the slayer defeats the vampire
-                (not (vampire-is-alive))
+                (and
+                    (not (vampire-is-alive))
+                    (not (vampire-is-in ?room))
+                    (not (fighting))
+                )
             )
             (when
                 ; when the room is dark and there's no garlic inside it...
@@ -148,7 +152,11 @@
                     (not (CONTAINS-GARLIC ?room))
                 )
                 ; ...the vampire defeats the slayer
-                (not (slayer-is-alive))
+                (and
+                    (not (slayer-is-alive))
+                    (not (slayer-is-in ?room))
+                    (not (fighting))
+                )
             )
         )
     )
